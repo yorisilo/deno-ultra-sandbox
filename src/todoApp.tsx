@@ -20,10 +20,10 @@ export const TodoApp: React.FC = () => {
   };
 
   return (
-    <main>
+    <>
       <h2>TODO</h2>
       <InputTodo onAdd={handleAddTodos} />
       <TodoList todos={todos} />
-    </main>
+    </>
   );
 };

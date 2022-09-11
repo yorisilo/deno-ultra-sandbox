@@ -12,9 +12,9 @@ export const TodoList: React.FC<Props> = (props) => {
   });
 
   return (
-    <main>
+    <>
       <span>TodoList</span>
       {todos}
-    </main>
+    </>
   );
 };

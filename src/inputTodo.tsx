@@ -19,7 +19,7 @@ export const InputTodo: React.FC<Props> = (props) => {
   };
 
   return (
-    <main>
+    <>
       <input
         type="text"
         placeholder="Enter to add"
@@ -27,6 +27,6 @@ export const InputTodo: React.FC<Props> = (props) => {
         onChange={handleChange}
         onKeyDown={handleEnter}
       />
-    </main>
+    </>
   );
 };

@@ -7,8 +7,8 @@ type Props = {
 
 export const Todo: React.FC<Props> = (props) => {
   return (
-    <main>
+    <p>
       {props.todo.text}
-    </main>
+    </p>
   );
 };
