@@ -1,24 +1,29 @@
 import React from "react";
 import { InputTodo } from "./inputTodo.tsx";
 import { TodoList } from "./todoList.tsx";
+import { createId } from "./createId.ts";
 
-type Todo = {
+export type Todo = {
+  key: string;
   text: string;
   done: boolean;
 };
+
+export type Todos = Todo[];
 
 export const TodoApp: React.FC = () => {
   const [todos, setTodos] = React.useState<Todo[]>([]);
 
   const handleAddTodos = (text: string) => {
-    setTodos((ts) => [...ts, { text: text, done: false }]);
+    const id = createId() + text;
+    setTodos((ts) => [...ts, { key: id, text: text, done: false }]);
   };
 
   return (
     <main>
       <h2>TODO</h2>
-      <InputTodo />
-      <TodoList />
+      <InputTodo onAdd={handleAddTodos} />
+      <TodoList todos={todos} />
     </main>
   );
 };

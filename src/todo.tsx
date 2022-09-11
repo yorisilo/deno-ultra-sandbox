@@ -1,9 +1,14 @@
 import React from "react";
+import { Todo as TodoEntity } from "./todoApp.tsx";
 
-export const Todo: React.FC = () => {
+type Props = {
+  todo: TodoEntity;
+};
+
+export const Todo: React.FC<Props> = (props) => {
   return (
     <main>
-      <span>Todo</span>
+      {props.todo.text}
     </main>
   );
 };
