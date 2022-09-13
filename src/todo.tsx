@@ -6,9 +6,20 @@ type Props = {
 };
 
 export const Todo: React.FC<Props> = (props) => {
-  return (
-    <p>
-      {props.todo.text}
-    </p>
-  );
+  const todo = (done: boolean) => {
+    if (done) {
+      return (
+        <p style={{ textDecoration: "line-through" }}>
+          {props.todo.text}
+        </p>
+      );
+    }
+    return (
+      <p>
+        {props.todo.text}
+      </p>
+    );
+  };
+
+  return todo(props.todo.done);
 };

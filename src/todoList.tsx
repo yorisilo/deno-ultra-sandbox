@@ -8,12 +8,12 @@ type Props = {
 
 export const TodoList: React.FC<Props> = (props) => {
   const todos = props.todos.map((todo) => {
-    return <Todo key={todo.key} todo={todo} />;
+    return <Todo key={todo.id} todo={todo} />;
   });
 
   return (
     <>
-      <span>TodoList</span>
+      <p>TodoList</p>
       {todos}
     </>
   );

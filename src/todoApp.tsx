@@ -4,7 +4,7 @@ import { TodoList } from "./todoList.tsx";
 import { createId } from "./createId.ts";
 
 export type Todo = {
-  key: string;
+  id: string;
   text: string;
   done: boolean;
 };
@@ -16,7 +16,7 @@ export const TodoApp: React.FC = () => {
 
   const handleAddTodos = (text: string) => {
     const id = createId() + text;
-    setTodos((ts) => [...ts, { key: id, text: text, done: false }]);
+    setTodos((ts) => [...ts, { id: id, text: text, done: false }]);
   };
 
   return (
