@@ -6,6 +6,13 @@ type Props = {
 };
 
 export const Todo: React.FC<Props> = (props) => {
+  const [checked, setChecked] = React.useState(false);
+  props.todo.done = checked;
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    setChecked(event.target.checked);
+  };
+
   const todo = (done: boolean) => {
     if (done) {
       return (
@@ -21,9 +28,15 @@ export const Todo: React.FC<Props> = (props) => {
     );
   };
 
+  console.log("rendering Todo component");
+
   return (
     <label style={{ padding: "1px", display: "block" }}>
-      <input type="checkbox" style={{ display: "inline" }} />
+      <input
+        type="checkbox"
+        onChange={handleChange}
+        style={{ display: "inline" }}
+      />
       {todo(props.todo.done)}
     </label>
   );
