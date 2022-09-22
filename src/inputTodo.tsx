@@ -19,14 +19,12 @@ export const InputTodo: React.FC<Props> = (props) => {
   };
 
   return (
-    <>
-      <input
-        type="text"
-        placeholder="Enter to add"
-        value={text}
-        onChange={handleChange}
-        onKeyDown={handleEnter}
-      />
-    </>
+    <input
+      type="text"
+      placeholder="Enter to add"
+      value={text}
+      onChange={handleChange}
+      onKeyDown={handleEnter}
+    />
   );
 };

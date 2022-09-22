@@ -15,7 +15,7 @@ export const TodoApp: React.FC = () => {
   const [todos, setTodos] = React.useState<Todo[]>([]);
 
   const handleAddTodos = (text: string) => {
-    const id = createId() + text;
+    const id = createId(text);
     setTodos((ts) => [...ts, { id: id, text: text, done: false }]);
   };
 
