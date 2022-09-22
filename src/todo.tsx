@@ -9,17 +9,22 @@ export const Todo: React.FC<Props> = (props) => {
   const todo = (done: boolean) => {
     if (done) {
       return (
-        <p style={{ textDecoration: "line-through" }}>
+        <p style={{ textDecoration: "line-through", display: "inline" }}>
           {props.todo.text}
         </p>
       );
     }
     return (
-      <p>
+      <p style={{ display: "inline" }}>
         {props.todo.text}
       </p>
     );
   };
 
-  return todo(props.todo.done);
+  return (
+    <label style={{ padding: "1px", display: "block" }}>
+      <input type="checkbox" style={{ display: "inline" }} />
+      {todo(props.todo.done)}
+    </label>
+  );
 };
