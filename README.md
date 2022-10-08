@@ -1,6 +1,22 @@
 # deno-ultra-sandbox
 deno で todo app を作成する
 
+## usage
+
+``` shell
+# サーバーを起動する (ホットリロードはないので、コードを更新するたびにブラウザを更新する必要がある)
+deno task dev
+```
+
+## develop
+
+``` shell
+# ローカルに各種パッケージをダウンロードすることで、lsp の補完が効くようになる。
+deno cache `find -E . -type f -regex "(.*.ts($|x)|importMap.json)"`
+```
+
+実装ファイルに直接記載しているパッケージもあるが、 importMap.json にすべて寄せたほうがいいのかもしれない。
+
 ## specification
 - [x] todo 登録できる
 - [x] todo を完了できる
