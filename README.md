@@ -12,10 +12,11 @@ deno task dev
 
 ``` shell
 # ローカルに各種パッケージをダウンロードすることで、lsp の補完が効くようになる。
-deno cache `find -E . -type f -regex "(.*.ts($|x)|importMap.json)"`
+# imporMap.json 以外に直接ファイルに package の url を記述している場合は以下を用いると良い
+# deno cache `find -E . -type f -regex "(.*.ts($|x)|importMap.json)"`
+# importMap.json にのみ package の url を記載している場合は以下でローカルにダウンロードする。
+deno cache importMap.json
 ```
-
-実装ファイルに url を直接記載しているパッケージもあるが、 importMap.json にすべて寄せたほうがいいのかもしれない。
 
 ## specification
 - [x] todo 登録できる
