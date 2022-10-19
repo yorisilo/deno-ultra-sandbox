@@ -1,4 +1,8 @@
-import { hydrateRoot } from "react-dom/client";
+import hydrate from "ultra/hydrate.js";
 import App from "./src/app.tsx";
 
-hydrateRoot(document, <App />);
+const ClientApp = () => {
+  return <App />;
+};
+
+hydrate(document, <ClientApp />);

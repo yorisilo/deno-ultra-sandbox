@@ -5,4 +5,7 @@ const builder = createBuilder({
   serverEntrypoint: import.meta.resolve("./server.tsx"),
 });
 
-await builder.build();
+builder.ignore("./README.md");
+
+// deno-lint-ignore no-unused-vars
+const result = await builder.build();

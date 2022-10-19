@@ -7,15 +7,24 @@ const server = await createServer({
   browserEntrypoint: import.meta.resolve("./client.tsx"),
 });
 
+const ServerApp = ({ context }: any) => {
+  const requestUrl = new URL(context.req.url);
+
+  return <App />;
+};
+
 server.get("*", async (context) => {
   /**
    * Render the request
    */
-  const result = await server.render(<App />);
+  const result = await server.render(<ServerApp context={context} />);
 
   return context.body(result, 200, {
-    "content-type": "text/html",
+    "content-type": "text/html; charset=utf-8",
   });
 });
 
-serve(server.fetch);
+if (import.meta.main) {
+  serve(server.fetch);
+}
+export default server;
